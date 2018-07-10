@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
-using Assets.Script.Manager.Input;
+using Assets.Scripts.Manager.Input;
 
 namespace Assets.TestInput
 {
