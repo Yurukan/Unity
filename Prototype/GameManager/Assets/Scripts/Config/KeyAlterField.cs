@@ -6,6 +6,9 @@ using Assets.Scripts.Manager.Input;
 
 namespace Assets.Scripts.Config
 {
+    /// <summary>
+    /// キー設定を変更するUI
+    /// </summary>
 	public class KeyAlterField : Selectable, IUpdateSelectedHandler,
 		IKeyDownHandler, IKeyFieldAccesser
 	{
@@ -112,23 +115,33 @@ namespace Assets.Scripts.Config
 				targetGraphic.color = _highlightColor;
 		}
 
+		/// <summary>
+		/// ボタンを押下したときの処理
+		/// </summary>
+		/// <param name="eventData">キー入力のイベント情報</param>
         void IKeyDownHandler.OnKeyDown(KeyEventData eventData)
         {
 			if (_isAlter)
 				return;
 
 			if (eventData.keyId == UIKeyId.Submit)
-			{
 				BeginAlterKey();
-			}
         }
 
+		/// <summary>
+		/// UIを選択したときの処理
+		/// </summary>
+		/// <param name="eventData"></param>
 		public override void OnSelect(BaseEventData eventData)
 		{
 			base.OnSelect(eventData);
 			targetGraphic.color = _highlightColor;
 		}
 
+		/// <summary>
+		/// UIを選択しているときの処理
+		/// </summary>
+		/// <param name="eventData"></param>
         void IUpdateSelectedHandler.OnUpdateSelected(BaseEventData eventData)
         {
 			if (!_isAlter || !UnityEngine.Input.anyKeyDown)
@@ -142,6 +155,10 @@ namespace Assets.Scripts.Config
 			}
         }
 
+		/// <summary>
+		/// UIが非選択になったときの処理
+		/// </summary>
+		/// <param name="eventData"></param>
         public override void OnDeselect(BaseEventData eventData)
         {
 			base.OnDeselect(eventData);

@@ -5,8 +5,16 @@ using Assets.Scripts.Manager.Input;
 
 namespace Assets.Scripts.Config
 {
+    /// <summary>
+    /// キー設定を変更するインターフェイス
+    /// </summary>
     public interface IAlterKeyHandler
     {
+        /// <summary>
+        /// キー配置を変更する
+        /// </summary>
+        /// <param name="field">変更するフィールド</param>
+        /// <param name="code">変更後のキーコード</param>
         void AlterKey(IKeyFieldAccesser field, KeyCode code);
     }
 
@@ -150,10 +158,10 @@ namespace Assets.Scripts.Config
             }
 
             /// <summary>
-            /// キー配置を変更する
+            /// IAlterKeyHandlerを参照
             /// </summary>
-            /// <param name="field">変更するフィールド</param>
-            /// <param name="code">変更後のキーコード</param>
+            /// <param name="field"></param>
+            /// <param name="code"></param>
             public void AlterKey(IKeyFieldAccesser field, KeyCode code)
             {
                 // 引数のキーコードが既に設定済み
